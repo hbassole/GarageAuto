@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Location</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="public/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="public/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+     
+           
+          
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
+              
+                <span class="logout-spn" >
+                  <a href="/adminconnexion" style="color:#fff;"><i class="fas fa-sign-out-alt"></i></a>  
+
+                </span>
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="active-link">
+                        <a href="/admin" ><i class="fa fa-desktop "></i>Dashboard </a>
+                    </li>
+                    <li>
+                        <a href="/admincommande"><i class="fas fa-box-open"></i>Commandes</a>
+                    </li>
+                    <li>
+                        <a href="/adminrendezvous"><i class="fas fa-calendar-check"></i>Rendez-vous</a>
+                    </li>
+                    <li>
+                        <a href="/adminlocation"><i class="fas fa-car "></i>Location de vehicule</a>
+                    </li>
+                    <li>
+                        <a href="/adminparkingauto"><i class="fas fa-road"></i>Parking auto</a>
+                    </li>
+                </ul>
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                     <h2>ADMIN DASHBOARD</h2>   
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                  <hr />
+                    
+                    <div class="container-fluid">
+
+                            <div>
+                                <h1 style="text-align: center">Liste des reservation de vehicules</h1><br>
+                                {{# if vehicules }}
+                                <table class="table "style="text-align:center">
+                                    <h4>Prix Total: {{ totalPrice }} FCFA</h4><br>
+                                    <thead >
+                                        <tr >
+                                            <th style="text-align:center;">Nom du vehicule</th>
+                                            <th style="text-align:center;">Photo</th>
+                                            <th style="text-align:center;">Montant</th>
+                                            <th style="text-align:center;">Quantité</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{# each vehicules }}
+                                        <tr>
+                                            <td style="text-align:center;">{{ this.item.title }}</td>
+                                            <td style="text-align:center; width: 150px;height: 100px;"><img src={{this.image}}></td>
+                                            <td style="text-align:center;">{{ this.price }} FCFA</td>
+                                            <td style="text-align:center;">{{ this.quantity }}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                                {{ else }}
+
+                                 {{/if}}
+                            </div>
+            </div>
+                            
+              </div>
+              
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+    <div class="footer">
+      
+    
+            <div class="row">
+                <div class="col-lg-12" >
+                    &copy; Design by: <a href="http://facebook.com/hermann.bassole" style="color:#fff;" target="_blank">Hermann Bassolé</a>
+                </div>
+            </div>
+        </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+</body>
+</html>

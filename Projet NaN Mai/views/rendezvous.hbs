@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/bootstrap.css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="public/css/font-awesome.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Rendez-vous</title>
+</head>
+<body style="background-image: url(public/images/rendezvous.png); background-repeat: no-repeat; background-position: center;">
+        <div class="back" >
+                <nav class="navbar pull-right" >
+                    <ul class="nav navbar-nav"style="margin-bottom:0px;background:black;">
+                        <li><a href="/acceuil"> <i class="fas fa-home"></i> Accueil</a></li>
+                        <li><a href="/realisation"> <i class="fas fa-wrench"></i> Realisation</a></li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fab fa-steam"></i> Nos services<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/achat">Achat de pieces</a></li>
+                                    <li><a href="/rendezvous">Rendez-vous</a></li>
+                                    <li><a href="/location">Location de vehicules</a></li>
+                                </ul>
+                        </li>
+                        <li class="dropdown pull-right"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 20px;"></i>
+                {{# if session.cart.totalItems }}
+                <span>({{session.cart.totalItems}})</span>
+                {{/if}}
+            </a>
+            {{# if session.cart.totalItems }}
+            <div class="dropdown-menu">
+                <div class="cart">
+                    {{# each session.cart.items }}
+                    <div class="row">
+                        <div class="col-xs-4">
+                            {{ this.item.title }}
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            <span class="badge">{{ this.quantity }}</span>
+                        </div>
+                        <div class="col-xs-4 text-right">
+                            {{ this.price }} 
+                        </div>
+                    </div>
+                    {{/each}}
+                    <div class="row">
+                        <div class="text-right">
+                            <div class="totalPrice">Total: {{ session.cart.totalPrice }} FCFA</div>
+                            <a href="/mescommandes" class="btn btn-success">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            </li> 
+                <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-box" style="font-size: 20px;"></i><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/mescommandes">Mes Commandes</a></li>
+                            <li><a href="/meslocations">Mes Locations</a></li>
+                            <li><a href="/mesrendezvous">Mes Rendez-vous</a></li>
+                        </ul>
+                </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="container-fluid font">
+                 <h1 style="margin-top: 100px;color: #FA8072;">Rendez-Vous></h1>
+            </div>
+        <div class="container">
+            <form action="/saverdv" method="POST" >
+                <div class="box col-sm-6 col-sm-offset-3" >
+                    <div style="">
+                        
+                        <div class="col-sm-6">
+                             <label for="marque">Marque</label>
+                            <input class="form-control" placeholder="Marque" required="" name="marque_rdv">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="modele">Modele</label>
+                            <input class="form-control" placeholder="Modele" required="" name="modele_rdv">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="">Jour</label>
+                            <input type="date" class="form-control" required="" name="jour_rdv">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="">Immatriculation</label>
+                            <input type="text" class="form-control" required="" name="immatriculation_rdv">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="">Prestations</label>
+                            <select class="form-control" required="" name="prestation_rdv">
+                                    <option >choisir</option>
+                                    <option value="viste Technique">Visite Technique</option>
+                                    <option value="Scanner">Scanner</option>
+                                    <option value="Depannage electrique">Depannage electrique</option>
+                                    <option value="Car traking">Car traking</option>
+                            </select>
+                            
+                        </div>
+
+                     </div>
+
+                        <input style="margin-top: 20px;" class="col-sm-6 col-sm-offset-3 btn btn-primary submit" type="submit" name="submit">
+                </div>
+            </form>
+        </div>
+    <section class="section">
+        <div class="container-fluid">
+            <h1 class="titre" >Nos Cordonnées</h1>
+            <div class="col-sm-3">
+                <h4 class="titre"style="text-decoration:underline;">Contact & Horaire</h4>
+                <p><a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a></p>
+                <p><i class="fas fa-map-marker-alt"></i>    Angré Gestoci,non loin du CHU angré</p>
+                <p><i class="fas fa-phone"></i> +225 49792733</p>
+                <p><i class="fas fa-phone"></i> +225 40221520</p>
+                <p><i class="fas fa-envelope"></i>  bassolehermann@gmail.com</p>
+                <p><i class="far fa-clock"></i> 7j/7   24h/24</p>
+            </div>
+            <div class="col-sm-6 "style="border-right:1px solid white;border-left: 1px solid white;">
+                <h4 class="titre" style="text-decoration:underline;" >Localisation</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.1051845029083!2d-3.9594970849227566!3d5.400943096082718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1933d4b2186d5%3A0xf64a1036251b83a4!2snouveau+CHU+angre!5e0!3m2!1sfr!2sci!4v1557743058050!5m2!1sfr!2sci" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col-sm-3">
+                <h4 class="titre"style="text-decoration:underline;">Reseaux Sociaux</h4>
+                <ul>
+                    <li style="list-style: none;"><i class="fab fa-facebook-f"></i>   FaceBook</li>
+                    <li style="list-style: none;"><i class="fab fa-twitter"></i>  Twitter</li>
+                    <li style="list-style: none;"><i class="fab fa-instagram"></i>    Instragram</li>
+                    <li style="list-style: none;"><i class="fab fa-youtube"></i>  Youtube</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+        <script src="public/js/bootstrap.js"></script>
+        <script src="public/js/bootstrap.min.js"></script>
+        <script src="public/js/jquery-3.3.1.js"></script>
+        <script src="public/js/jquery-3.3.1.min.map"></script>
+</body>
+</html>

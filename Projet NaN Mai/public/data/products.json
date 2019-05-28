@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Batterie",
+    "image": "public/images/batterie.jpg",
+    "price": 15000
+  },
+  {
+    "id": 2,
+    "title": "Amortisseur",
+    "image": "public/images/amortisseur.jpg",
+    "price": 23000
+  },
+  {
+    "id": 3,
+    "title": "Bougie",
+    "image": "public/images/bougie.jpg",
+    "price": 8000
+  },
+  {
+    "id": 4,
+    "title": "Jante",
+    "image": "public/images/jante.jpg",
+    "price": 16000
+  },
+  {
+    "id": 5,
+    "title": "piston",
+    "image": "public/images/piston.jpg",
+    "price": 4000
+  },
+  {
+    "id": 6,
+    "title": "frein",
+    "image": "public/images/frein.jpg",
+    "price": 15000
+  },
+  {
+    "id": 7,
+    "title": "turbine",
+    "image": "public/images/turbine.jpg",
+    "price": 16000
+  },
+  {
+    "id": 8,
+    "title": "echappement",
+    "image": "public/images/echappement.jpg",
+    "price": 16000
+  }
+]

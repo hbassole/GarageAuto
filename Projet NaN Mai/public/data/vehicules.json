@@ -1,0 +1,56 @@
+[
+    {
+      "idl": 1,
+      "title": "Limousine Town Car 110",
+      "image": "public/images/e1.jpg",
+      "price": 85000
+    },
+    {
+      "idl": 2,
+      "title": "Rolls Royce Ghost",
+      "image": "public/images/e2.jpg",
+      "price": 125000
+    },
+    {
+      "idl": 3,
+      "title": "Mercedes Class S 550",
+      "image": "public/images/e3.jpg",
+      "price": 95000
+    },
+    {
+      "idl": 4,
+      "title": "Mercedes Class 350",
+      "image": "public/images/e4.jpg",
+      "price": 95000
+    },
+    {
+      "idl": 5,
+      "title": "Ford Fusion 2014",
+      "image": "public/images/e9.jpg",
+      "price": 65000
+    },
+    {
+      "idl": 6,
+      "title": "Cadillac Escalade",
+      "image": "public/images/e6.jpg",
+      "price": 110000
+    },
+    {
+      "idl": 7,
+      "title": "Lincoln Town Car",
+      "image": "public/images/e7.jpg",
+      "price": 70000
+    },
+    {
+      "idl": 8,
+      "title": "Limousine Town Car 70",
+      "image": "public/images/e8.jpg",
+      "price": 75000
+    },
+    {
+        "idl": 9,
+        "title": "Ford Fusion Hybrid",
+        "image": "public/images/e9.jpg",
+        "price": 80000
+    }
+  ]

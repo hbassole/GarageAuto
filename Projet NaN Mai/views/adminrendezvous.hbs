@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Rdv</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="public/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="public/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+     
+           
+          
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
+              
+                <span class="logout-spn" >
+                  <a href="/adminconnexion" style="color:#fff;"><i class="fas fa-sign-out-alt"></i></a>   
+
+                </span>
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="active-link">
+                        <a href="/admin" ><i class="fa fa-desktop "></i>Dashboard </a>
+                    </li>
+                    <li>
+                        <a href="/admincommande"><i class="fas fa-box-open"></i>Commandes</a>
+                    </li>
+                    <li>
+                        <a href="/adminrendezvous"><i class="fas fa-calendar-check"></i>Rendez-vous</a>
+                    </li>
+                    <li>
+                        <a href="/adminlocation"><i class="fas fa-car "></i>Location de vehicule</a>
+                    </li>
+                    <li>
+                        <a href="/adminparkingauto"><i class="fas fa-road"></i>Parking auto</a>
+                    </li>
+                </ul>
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                     <h2>ADMIN DASHBOARD</h2>   
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                  <hr />
+                    
+                    <div class="container-fluid">
+                                <h1 style="text-align: center">Liste des rendez-vous !</h1><br>
+                                {{#if results }}
+                                <table class="table "style="text-align:center"id="mytable">
+                                    <thead >
+                                        <tr >
+                                            <th style="text-align:center;">Nom</th>
+                                            <th style="text-align:center;">Contact</th>                                            
+                                            <th style="text-align:center;">Marque</th>
+                                            <th style="text-align:center;">Modele</th>
+                                            <th style="text-align:center;">Jour</th>
+                                            <th style="text-align:center;">Immatriculation</th>
+                                            <th style="text-align:center;">prestation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each results }}
+                                        <tr>
+                                            <td style="text-align:center;">{{nom_user}}</td>
+                                            <td style="text-align:center;">{{contact_user}}</td>
+                                            <td style="text-align:center;">{{marque_rdv}}</td>
+                                            <td style="text-align:center;">{{modele_rdv}}</td>
+                                            <td style="text-align:center;">{{jour_rdv}}</td>
+                                            <td style="text-align:center;">{{immatriculation_rdv}}</td>
+                                            <td style="text-align: center;">{{prestation_rdv}}</td>
+                                        </tr>
+                                        {{/each}}
+
+                                    </tbody>
+                                </table>
+                                {{ else }}
+                            {{/if}}
+                            </div>
+                      
+                            
+              </div>
+              
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+    <div class="footer">
+      
+    
+            <div class="row">
+                <div class="col-lg-12" >
+                    &copy; Design by: <a href="http://facebook.com/hermann.bassole" style="color:#fff;" target="_blank">Hermann Bassolé</a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+ 

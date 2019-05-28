@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parking Auto</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="public/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="public/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+     
+           
+          
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                
+              
+                <span class="logout-spn" >
+                  <a href="/adminconnexion" style="color:#fff;"><i class="fas fa-sign-out-alt"></i></a>  
+                </span>
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" style="padding: 15px;" role="navigation">
+            <div class="sidebar-collapse">
+                   <ul class="nav" id="main-menu">
+                    <li class="active-link">
+                        <a href="/admin" ><i class="fa fa-desktop "></i>Dashboard </a>
+                    </li>
+                  </ul>
+                <h3 style="margin-top: 25px;"><strong>Ajouter un vehicule</strong></h3>
+                <form action="/saveparking" method="post">
+                        <label for="Nom"style="margin-top: 25px;">Nom</label>
+                        <input type="text" class="form-control" placeholder="Nom" name="nom" required=""></input>
+                        <label for="Contact">Contact</label>
+                        <input type="phone" class="form-control" placeholder="Contact" name="contact" required=""></input>
+                        <label for="Prenoms">Marque</label>
+                        <input type="text" class="form-control" placeholder="marque" name="marque" required=""></input>
+                        <label for="Prenoms">Immatriculation</label>
+                        <input type="text" class="form-control" placeholder="Immatriculation" name="immatriculation" required=""></input>
+                        <label for="Heure">Heure début</label>
+                        <input type="time" class="form-control"  name="heuredebut" required=""></input>
+                        <label for="Heure">Heure Fin</label>
+                        <input type="time" class="form-control" style="margin-bottom: 20px;"  name="heurefin" required=""></input>
+                        <button type="submit" class="btn btn-primary col-lg-12">Valider</button>
+            </form>
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                      <div class="row">
+                          <div class="col-lg-12">
+                              <h2>ADMIN PARKING AUTO</h2>   
+                          </div>
+                     </div>              
+                 <!-- /. ROW  -->
+                      <hr style="margin-bottom:10%;"/>
+                    
+                      <div style="background: #fff" >
+    
+                          <table class="table " id="mytable">
+                              <thead>
+                                  
+                                  <tr> 
+                                    <td><strong>NOM</strong></td>
+                                    <td><strong>CONTACT</strong></td>
+                                    <td><strong>MARQUE</strong></td>
+                                    <td><strong>IMMATRICULATION</strong></td>
+                                    <td><strong>HEURE DEBUT</strong></td>
+                                    <td><strong>HEURE FIN</strong></td>
+                                    <td><strong>ACTION</strong></td>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                {{#each results}}
+                                <tr>
+                                    <td>{{nom}}</td>
+                                    <td>{{contact}}</td>
+                                    <td>{{marque}}</td>
+                                    <td>{{immatriculation}}</td>
+                                    <td>{{heuredebut}}</td>
+                                    <td>{{heurefin}}</td>
+                                    <td>
+                                      <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ idparking }}">Supprimer</a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                              </tbody>
+                        </table>
+                      </div>
+                      <form id="add-row-form" action="/deleteparking" method="post">
+                                <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                                                <h5 class="modal-title" id="myModalLabel">Annuler la reservation </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                                        <strong>Etes vous sûr de vouloir Annuler la reservation?</strong>
+                                        </div>
+                                        <div class="modal-footer">
+                                                                    <input type="hidden" name="id" class="form-control product_id2" required>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-success">Annuler</button>
+                                        </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </form>
+              
+            </div>   
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+    <div class="footer">
+      
+    
+            <div class="row">
+                <div class="col-lg-12" >
+                    &copy; Design by: <a href="http://facebook.com/hermann.bassole" style="color:#fff;" target="_blank">Hermann Bassolé</a>
+                </div>
+            </div>
+        </div>
+
+  <script>
+    $(document).ready(function(){
+			//showing modal for delete record
+		$('#mytable').on('click','.delete',function(){
+        var id = $(this).data('id');
+        $('#DeleteModal').modal('show');
+        $('.product_id2').val(id);
+      });
+
+    });
+</script>          
+</body>
+</html>
+
